@@ -1,7 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}
+    {{ parent() }}
+    {# Añadie pero no sobreescribe#}
+    - Home
+{% endblock %}
 
-{% block body %}
-    <h1>Home {{name}}</h1>
+
+{% block cuerpo %}
+    <h1>Home {% if name is defined %} {{name}} {% endif %}</h1>
+
+    {% include 'listado.html.twig' with {'titulo': 'por comprar'} %}
+    {% include 'listado.html.twig' with {'titulo': 'comprado'} %}
+    {#{titulo}#}
+    {#% include 'listado.html.twig' with {'titulo': 'por vender'} %##}
+
+
+    
+    <p>{{'pepe'|upper}}</p>
+    <p>{{'<h3>pepe 2</h3>'|raw}}</p>
+
+
+
+    {% if images is defined %}
+        {% if images is iterable %} 
+            {#si el array es iterable#}
+            {% set totalimages = images|length %} 
+            {#creo variable de cantidad#}
+            {{totalimages}} {{'Fotos'}} 
+            {#meto cantidad traduzco inteligentemente#}
+        {% else %}
+            Sin imágenes
+        {% endif %}
+    {% endif %}
+
+    {% if images is defined %}
+
+        {% for foto in product.fotos %}
+            {% if loop.index <= 4 %}
+                <img src='{{foto.url}}'/>{{foto.name}}
+                {{loop.index}}
+            {% endif %}    
+        {% endfor %} 
+
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block footer %}
+    <footer>Soy un footer</footer
 {% endblock %}
