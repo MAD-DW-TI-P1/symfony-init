@@ -20,6 +20,7 @@ class HomeController extends AbstractController
     public function indexpersonalizada(Request $request): Response
     {
         //dump($request->attributes->get('name'));die;
+        // En el caso de que sea un parámetro: $name = $request->query->get('name');
         return $this->render('index.html.twig', [
             'name' => $request->attributes->get('name'),
         ]);
