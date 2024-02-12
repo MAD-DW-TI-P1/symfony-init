@@ -14,7 +14,7 @@ class CoderType extends AbstractType
         $builder
             ->add('nombre')
             ->add('edad')
-            ->add('sede')
+            //->add('sede')
         ;
     }
 

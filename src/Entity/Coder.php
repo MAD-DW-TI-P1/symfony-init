@@ -63,17 +63,17 @@ class Coder
         return $this;
     }
 
-    public function getSede(): ?string
-    {
-        return $this->sede;
-    }
+    // public function getSede(): ?string
+    // {
+    //     return $this->sede;
+    // }
 
-    public function setSede(string $sede): self
-    {
-        $this->sede = $sede;
+    // public function setSede(string $sede): self
+    // {
+    //     $this->sede = $sede;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection<int, Bootcamp>

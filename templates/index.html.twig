@@ -2,7 +2,7 @@
 
 {% block title %}
     {{ parent() }}
-    {# Añadie pero no sobreescribe#}
+    {# Añade pero no sobreescribe#}
     - Home
 {% endblock %}
 
@@ -15,12 +15,8 @@
     {#{titulo}#}
     {#% include 'listado.html.twig' with {'titulo': 'por vender'} %##}
 
-
-    
     <p>{{'pepe'|upper}}</p>
     <p>{{'<h3>pepe 2</h3>'|raw}}</p>
-
-
 
     {% if images is defined %}
         {% if images is iterable %} 
@@ -38,7 +34,7 @@
 
         {% for foto in product.fotos %}
             {% if loop.index <= 4 %}
-                <img src='{{foto.url}}'/>{{foto.name}}
+                <img alt='nombre de imagen' src='{{foto.url}}'/>{{foto.name}}
                 {{loop.index}}
             {% endif %}    
         {% endfor %} 

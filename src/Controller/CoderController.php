@@ -25,13 +25,11 @@ class CoderController extends AbstractController
     public function indexapicoder(CoderRepository $coderRepository): Response
     {
         $coder = $coderRepository->findAll();
-        $data = []; 
+        $data = [];
         foreach ($coder as $c) {
             $data[] = [
                 'id' => $c->getId(),
-                'edad' => $c->getEdad(),
-                'sede' => $c->getSede(),
-
+                'edad' => $c->getEdad()
             ];
         }
         // return $this->render('coder/index.html.twig', [
@@ -50,8 +48,6 @@ class CoderController extends AbstractController
             $data[] = [
                 'id' => $c->getId(),
                 'edad' => $c->getEdad(),
-                'sede' => $c->getSede(),
-
             ];
         }
         return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
